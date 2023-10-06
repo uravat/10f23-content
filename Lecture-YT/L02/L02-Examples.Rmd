@@ -1,0 +1,277 @@
+---
+title: "Examples : Data types and Data structures"
+author: "Your netid, last name, first name here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+
+# 1. Data type examples
+```{r}
+student <- "Ally"
+typeof(student)
+```
+```{r}
+y <- 1
+typeof(y)
+```
+```{r}
+z <- as.integer(y) # OR use L notation while creating
+typeof(z)
+```
+```{r}
+y <- 1L
+typeof(y)
+```
+```{r}
+pass <- TRUE
+typeof(pass)
+```
+
+# 2.  Logical **Data Type**
+
+```{r}
+5 < 9
+5 < -9
+a <- 5 < -9
+typeof(a)
+```
+
+B
+
+
+# 3. Creating Vectors  with combine function `c()`
+
+```{r}
+# Numeric vector
+a <- c(1, 6, 5.3, 6, -2, 4) #as opposed to a<-c(1,6,5.3,6,-2,4)
+typeof(a) 
+```
+
+```{r}
+#Character vector
+students <- c("Maribel","Evelyn","Lizabeth", "David", "Tera")
+typeof(students)
+```
+
+```{r}
+#Logical vector
+have_met_OH <- c(FALSE, TRUE, FALSE, TRUE, FALSE)
+typeof(have_met_OH)
+```
+
+# 4. Functions operating on vectors (3)
+
+## length()
+```{r}
+# How long are each of these vectors? 
+length(a)
+length(students)
+length(have_met_OH)
+```
+
+
+## sort()
+
+**How does the `sort()` function work? What is the default sort order?** 
+
+```{r}
+# How does R sort these vectors
+# What's the default sort order, how do you change it? Try it OYO!
+
+sort(a) # default is increasing. 
+sort(students) 
+sort(have_met_OH) # 0 vs 1
+# Check ?sort if you haven't already so you are not guessing about the functionality but know what it is and how it is supposed to work
+```
+
+**Does `a` change after applying `sort()` to `a`?**
+```{r}
+a <- c(1, 6, 5.3, 6, -2, 4)
+sort(a)
+a
+```
+
+```{r}
+# After sorting a remains unsorted, 
+# the sorted vector must be saved to get it in sorted order
+( a <- sort(a) )
+```
+
+# 5. Coercion 
+
+## for scalar data type
+
+
+```{r}
+3
+typeof(3)
+as.integer(3)
+typeof(as.integer(3))
+as.character(3)
+as.logical(3)
+FALSE
+typeof(FALSE)
+as.character(FALSE)
+as.numeric(FALSE)
+as.numeric(TRUE)
+TRUE+TRUE
+typeof(TRUE+TRUE)
+```
+## for vectors (is similar)
+ 
+ 
+```{r}
+x <- c(1, 2, 3)
+x
+typeof(x)
+```
+
+To **explicitly** create integers: use L
+
+```{r}
+x1 <- c(1L, 2L, 3L)
+typeof(x1)
+```
+**OR** *coerce* to the integer type using `as.integer()`
+```{r}
+x2 <- as.integer(x)
+typeof(x2)
+x2
+```
+
+**OR** *coerce* to the logical type using `as.logical()`
+```{r}
+x3 <- as.logical(x)
+typeof(x3)
+x3
+```
+
+B13
+
+# 6. Creating a vector faster using `:`, `seq` , `rep`
+
+**Create a vector with elements:  1,2,3,4,5,6,7,8,9,10 using three different ways.**
+```{r}
+# 1. Using c
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+x
+typeof(x)
+is.vector(x)
+```
+
+```{r}
+## 2. Using : 
+x <- 1:10
+x
+typeof(x)
+is.vector(x)
+```
+
+
+```{r}
+## 3. Using the `seq` function.(Look up help for seq)
+(x <- seq(from=3, to=7, by=0.8))
+typeof(x)
+is.vector(x)
+
+```
+
+
+### Using the replication function, rep()
+
+`rep()` function creates a vector of repeated values.
+
+**Create a vector with elements: 1 1 1 2 2 2 3 3 3**
+```{r}
+# 4. Using the replication function, rep()
+x <- rep(1:3, each = 3)
+typeof(x)
+is.vector(x)
+```
+
+B
+
+
+# 7. Accessing and updating an element of a vector using  the square bracket operator [ ]
+
+```{r}
+# (a) Construct a vector x with elements 1,7,3,10,5.
+x <- c(1, 7, 3, 10, 5)
+```
+```{r}
+# b) Write code to return the 4th element of x
+# (index is 4)
+x[4]
+```
+
+```{r}
+# (c) Assign the value 100 to the 4th element of x 
+x[4] <- 100
+x
+```
+
+B
+
+# 8. Subsetting a vector
+
+## 8.1  using `[ ]`
+```{r}
+# d) Write code to return every element of x
+# except the 2nd (index is not 2)
+x[-2]
+```
+
+## 8.2 using `:` operator
+
+Construct a vector named counts with elements 2, 0, 3, 1, 3 and extract the subset containing the elements 2, 0, 3.
+
+```{r}
+counts <- c(2, 0, 3, 1, 3)
+counts[ 1:3 ]
+```
+
+##  8.3 Using `c()` function
+
+```{r}
+counts <- c(2, 0, 3, 1, 3)
+# return the 1st and 3rd element of counts.
+counts[ c(1,3) ]
+```
+
+##  8.4 via selection criteria
+
+```{r}
+price  <- c(500, -10, 30, 20, -10, -3 , - 2, 100, 90  ) 
+# is a value positive?
+positive_price <- price > 0
+positive_price
+# select all positive values
+price[price > 0]
+```
+
+In Data science, selecting values that satisfy a property is called **filtering**. We **filtered** positive prices from all price values. 
+
+
+`r bfcolor("WAP: With a Peer!","orange")`
+What do you think  `sum`, `max`, `min`, `which.max`, `which.min` functions would do when applied to a vector?
+Try it out!
+
+
