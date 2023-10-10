@@ -1,0 +1,157 @@
+---
+title: "PSTAT 10: Worksheet 2"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+
+Work in groups of at most 3 assigned by your TA. Take turns to explain each exercise to your group mates before proceeding to the next exercise as a group. 
+
+---
+
+## Exercise 0: YAML
+
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+---
+
+## Exercise 1: Element-ary, Dear Watson
+
+Create a vector `x` containing the elements 8, 14, 6, 11, 2, 1, 23, 4, 7
+
+Write code to:
+
+**(a)** extract the 6th element of `x`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(b)** extract the 2nd , 3rd and 4th elements of `x`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(c)** find the median of `x`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(d)** determine the length of `x`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(e)** **(Optional)** Assign the name of nine of your favorite foods as names attribute of this vector `x`. Verify that that the names have been assigned correctly.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+---
+
+## Exercise 2: Rep-and-Roll
+
+Using `rep()` function, create the following vectors:
+
+**(a)** 5 5 5 5 5 5 5
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(b)** 1 1 1 4 4 4 9 9 9 
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+\
+
+---
+
+## Exercise 3: Combined Intellect
+
+Given variables `p <- c(1,4,5,7,7)` and `q <- c(3,5,4,1,5)`. 
+
+**(a)** Create a vector `z` by combining the vectors `p` and `q`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(b)** Explain the difference in the results of `p + q` and
+`sum(p + q)`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+\
+
+---
+
+## Exercise 4: :)
+
+
+Rewrite the following code using the colon operator.
+
+```{r, eval = F}
+x <- c(10, 11, 12, 13, 14, 13, 12, 11, 10)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+---
+
+## Exercise 5: Rep-and-Roll, Electric Boogaloo
+
+
+Use the replicate function `rep()` to generate the following sequence:
+
+7 7 8 8 9
+
+(Note: there is not an error here. The required sequence has only one instance of ‘9’)
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+---
+
+
+# Last Exercise: Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+- Gain 1
+- Gain 2
+- Gain 3
