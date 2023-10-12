@@ -1,0 +1,279 @@
+---
+title: "PSTAT 10: Worksheet 3"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+params:
+  solution: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+Work in groups of at most 3 assigned by your TA. Take turns to explain each exercise to your group mates before proceeding to the next exercise as a group. 
+
+
+# Exercise 1: Matrices
+
+**(a)** Generate a 6 x 5 numeric matrix with elements 1 through 30
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(b)** Select the 4th column of the matrix
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(c)** Select rows 3,4,5 of columns 1,2,3 of the matrix
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(d)** Add row names and column names to the matrix. 
+
+```{r}
+# Write your code here
+```
+
+
+
+**(e)** Extract the elements in column five by its column name.
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 2: More matrix 
+
+**(a)** Create vectors: a = (3,2,4,5,8); b = (7,5,4,6,6); d = (1,3,4,5,6)
+
+`r bfcolor("Solutions:", "blue")` 
+
+```{r}
+# Write your code here
+```
+
+
+
+**(b)** Without using matrix function, write one line of code to generate a matrix which has rows given by vectors a, b, d in that order. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+**(c)** What is the dimension of the matrix you created in (b) above?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 3: Array
+
+```{r}
+aaa =  c(2,3,5,7)
+bbb = c(6,7,10,14,41)
+```
+
+**(a)** Using the above vectors, create an array of two 2 x 3 matrices.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(b)** Sum the rows 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(c)** Sum the columns
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(d)** Sum the cells
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 4: Factor
+
+**(a)** Create a factor with elements: female, male, male, female 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+**(b)** What are the levels?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(c)** How many levels are there?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(d)** Determine if this is an ordered factor? Explain your reasoning after your code. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+# (Optional) Exercise : Review of Single Logical operator
+
+
+**(a)** Test whether 4 is less than 8
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(b)** Is 10 equal to 11?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(c)** Is 6+7<10?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 5: Logicals 
+
+**(a)** In which package can we find datasets with information about US states?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+**(b)** How many US states have an area less than 20 000 square miles? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(c)** How many US states have an area greater than 150 000 square miles?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
