@@ -1,0 +1,289 @@
+---
+title: "PSTAT 10: Worksheet 4"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+params:
+  solution: TRUE
+  release: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+Work in groups of at most 3 assigned by your TA. Take turns to explain each exercise to your group mates before proceeding to the next exercise as a group. 
+
+---
+
+# Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+---
+
+# Exercise 1: List
+
+```{r}
+y_list <- list(a = 5, b = 1:3, c = "hello")
+```
+
+**(a)** Print the list
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(b)** What type of object is stored as the second member in the list?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+
+**(c)** Extract the second item of the list using index.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(d)** Extract the second item in the list using name
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(e)** Add 5 to every element of the second item in the list using [[ and store the result as result_d. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+**(f)** **Optional** Update "hello" to "Hey there!"
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+---
+
+# Exercise 2: Data frame basics
+
+
+Consider three vectors:
+```{r}
+v1 = c(3:7)
+v2 = c("orange", "purple", "blue", "white", "yellow")
+v3 = c(F, T, T, F, T)
+```
+
+
+**(a)** Construct a data frame `df1` from the three vectors `v1, v2, v3`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+
+**(b)** Check that the object you created is a data frame.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+**(c)** How many rows does `df1` have
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(d)** Add row names "r1", "r2" and so on
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+
+
+**(e)** Extract the second column by index.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(f)** Extract the second column by column name.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(g)** Extract all data except the second column.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(h)** **OPTIONAL** Sort the 2nd column. Describe the sort order. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+# Exercise 3: Special values!
+
+**(a)** Write code that produces `-Inf`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(b)** Test if `NaN` is a numeric value. _Recall: `is.datatype()` functions
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(c)** Give an example of an expression that results in `NaN` value and store your result as `test_nan`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(d)** **(OPTIONAL)**
+
+```{r}
+wood_chucker <- "How much wood would a wood chuck chuck if a wood chuck could chuck wood?"
+```
+
+Replace the first occurrence of chuck with `check`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+**(e)** **(OPTIONAL)** Replace all occurrences of chuck with `check`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
