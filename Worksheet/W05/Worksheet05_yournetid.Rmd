@@ -1,0 +1,139 @@
+---
+title: "PSTAT 10: Worksheet 5"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+params:
+  solution: TRUE
+  release: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+Work in groups of at most 3 assigned by your TA. Take turns to explain each exercise to your group mates before proceeding to the next exercise as a group. 
+
+---
+
+# Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+---
+
+# Exercise 1: 
+
+Take a look at the `starwars` dataset in three ways. For plots in this exercise, do something other than what we did in lecture. 
+
+**(a)** Use `glimpse` and  `str()` function and look at the help file. What difference do you notice between information given by these three functions? Make sure to load any packages you will need.
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(b)** Use `tail`, `head` with appropriate arguments to look at the first five and last five rows respectively. Use the help for these functions if needed
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(c)** What are all the column names?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(d)** How much data do we have? Find it in two ways. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(e)** Pick a single numerical variable and make a histogram of it.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(f)** Pick two numerical variables from the data set and make a scatter plot. You may need to remove `NA` values. Describe the relation, if any, between these two variables. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(g)** Pick a single categorical variable from the data set and make a bar plot of its distribution. You may need to omit `NA` values.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**(h)** Pick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.
+
+ `r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
+
+
