@@ -1,0 +1,192 @@
+---
+title: "PSTAT 10: Worksheet 7"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+Work in groups of at most 3 assigned by your TA. Take turns to explain each exercise to your group mates before proceeding to the next exercise as a group. 
+
+---
+
+# Instructions for Completion
+
+- This worksheet consists of two parts: Computing Exercises, and Theory Exercises. 
+- You must complete the computing exercises by filling in your code on this `.Rmd` file, just like you did with the previous worksheets. 
+- You must complete the theory exercises on a separate sheet of paper.
+
+\
+
+---
+
+# Computing Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+\
+
+---
+
+## Exercise 1: Risky Gamble
+
+Adam and Ethan are gambling against one another. A fair coin is tossed repeatedly.
+Adam wins 2 dollars from Ethan each time a head comes up, and Adam loses 2 dollars to Ethan each time a tail comes up. Use `R` to simulate this game 100 times, and estimate
+
+**(a)** the number of times that Adam is ahead (i.e. has more money than Ethan) in these 100 tosses
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+**(b)** how much Adam has won or lost.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+
+```
+
+
+\
+
+---
+
+## Exercise 2: Dice Game
+
+**(a)** Roll two dice -  one green, one red. What is the probability the sum equals six? Use `R` to estimate this probability with relative frequency approach using  $10,000$ replications. To help you get started, we have provided a skeleton code for you to use below. **Don't edit the function directly;** copy-paste it into a new code chunk, and then edit that copied version (so that you still retain the original function in your document, in case you need to access it again.)
+
+```{r eval = FALSE}
+nreps <- _____ # num reps
+count <- _____ # counter to keep track.
+
+for (rep in seq_len(______)) {
+  green <- ______ # roll the green die 
+  red <-  _______ # roll the red die
+  dice_sum <- _______
+  if (__________) {
+    count <- count + 1 # The event occurs, so we increment the counter
+  }
+}
+
+_____ # probability that the sum is 6 is relative frequency
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+
+```
+
+\
+
+**(b)** Write a function `roll_dice` that takes only one input: `nreps`, the number of repetitions. The function `roll_dice` should roll two dice - one green, one red - `nreps` times and return the relative frequency with which the sum of the two dice equals six. Call your function with 10,000 repetitions and verify the probability is close to the theoretical value of $\frac{5}{36} \approx 0.1389$. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+
+
+\
+
+---
+
+
+# Theory Exercises
+
+
+## Exercise 3: (OPTIONAL) Coin Game
+
+Identify the experiment, sample space and the event in the activities below.
+
+
+(a) We toss two coins and look for at least one head.
+
+(b) We can draw a card from a standard deck and look for a spade.
+
+(c) We can roll a six sided die twice and look for the sum. Draw a tree diagram for the sample space. 
+
+
+\
+
+---
+
+## Exercise 4 : Card Game
+
+Draw three cards from a deck with replacement. What is the probability that all are black?
+
+
+\
+
+---
+
+
+## Exercise 5: More Cards?!
+
+A card is selected at random from a pack consisting of a total of 52 cards, including 4 queens and 4 kings. The card is not replaced. A second card is selected. Find the probability that the second card is a queen, given that the first card is a king. \newline
+
+(A standard deck has a total of 52 cards, including 4 queens and 4 kings as shown in the lecture notes)
+
+
+
+\
+
+---
+
+## Exercise 6: Darts
+
+Amy, Alyssa, and Andrew take turns shooting darts at a dartboard. Amy scores a bullseye 80\% of the time; Alyssa scores a bullseye 60\% of the time, and Andrew scores a bullseye 70\% of the time. Suppose the three friends each shoot a dart at a dartboard, independently of each other. \
+
+(a) What is the chance that Amy and Andrew both make the bullseye, but Alyssa does not?
+
+(b) What is the probability that none of the three friends hit the bullseye?
+
+(c) What is the probability that at least one of the three friends hit the bullseye?
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
