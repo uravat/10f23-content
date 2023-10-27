@@ -1,0 +1,390 @@
+---
+title: "Your Turn : Simulating Random variables in `R`"
+author: "Dr. Uma Ravat"
+date: "`r Sys.Date()`"
+tutorial:
+  id: "Lecture08_Random Variables"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+description: "Simulating Random variables in `R"
+runtime: shiny_prerendered
+---
+
+
+```{r setup, include = FALSE}
+library(learnr)
+library(tutorial.helpers)
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+options(tutorial.exercise.timelimit = 60, 
+        tutorial.storage = "local") 
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+
+```{r copy-code-chunk, child = system.file("child_documents/copy_button.Rmd", package = "tutorial.helpers")}
+```
+
+```{r info-section, child = system.file("child_documents/info_section.Rmd", package = "tutorial.helpers")}
+```
+
+
+## Random variables, expected value, variance
+### A card game 
+
+In a game of cards you win \$1 if you draw a heart, \$5 if you draw an ace (including the ace of hearts), \$10 if you draw the king of spades and nothing for any other card you draw. 
+
+### Exercise : Theory
+
+Using R, tabluate the pmf of your winnings. Verify that it is a pmf. What is the expected value of your winnings? Interpret what this value means. 
+
+```{r game-ev, exercise=TRUE, exercise.eval=FALSE}
+your_code_here
+```
+
+```{r game-ev-solution}
+values <- c(0, 1, 5, 10)
+p <- c(35/52, 12/52, 4/52, 1/52)
+names(p) <- values
+p
+round(p,2)
+
+sum(p)
+
+ex <- sum(values*p)
+ex
+```
+
+### Exercise: Simulation
+
+Simulate playing this game 100 times. ie draw a sample of size 100 from the probability distribution of winnings from this game. View the results appropriately and find the average of the winnings in these 100 games. 
+
+_Hint:_
+
+- `sample()`: what values and with what probability, what's the sample size?
+- What type of plot? (hint: Data falls into categories)
+
+
+```{r game-sim100, exercise=TRUE, exercise.eval=FALSE}
+your_code_here
+```
+
+```{r game-sim100-solution}
+values <- c(0,1,5,10)
+p <- c(35/52, 12/52, 4/52, 1/52 )
+names(p) <- values
+
+sim_wins <- sample( values, 100, replace = TRUE, prob = p)
+sim_wins
+
+round(p,2)
+
+table(sim_wins)
+
+prop.table(table(sim_wins))
+
+print(paste("average of winnings in 100 simulated games is", round(mean(sim_wins),2)))
+
+print(paste("expect value of winnings  is", round(sum(values*p),2)))
+
+barplot(table(sim_wins))
+```
+
+### Exercise
+
+Compare the average winnings from simulation and theory. Are they same, different, how do you explain it?
+
+B
+
+### Exercise
+
+What is the variability in winnings? What is its interpretation?
+
+```{r game-var, exercise=TRUE, exercise.eval=FALSE}
+your_code_here
+```
+
+```{r game-var-solution}
+values <- c(0, 1, 5, 10)
+p <- c(35/52, 12/52, 4/52, 1/52 )
+names(p) <- values
+
+ev <- sum(values*p)
+ev
+
+v <-  sum(((values-ev)^2)*p)
+v
+
+sd <- sqrt(v)
+sd
+
+ev - sd
+
+ev + sd
+
+```
+
+### Exercise
+
+Find the cdf at 7. 
+
+```{r game-cdf, exercise=TRUE, exercise.eval=FALSE}
+your_code_here
+```
+
+```{r game-cdf-solution}
+values <- c(0,1,5,10)
+p <- c(35/52, 12/52, 4/52, 1/52 )
+names(p) <- values
+p
+
+cp <- cumsum(p)
+cp
+
+cp[3]
+```
+
+## Clinical Trial Simulation: pmf from simulation
+
+
+
+Suppose that a clinical trial to test a new drug will be conducted on 8 patients, in which the probability of a good response to the drug is thought to be 0.15.
+
+Let us simulate outcomes of 500 clinical trials, where each trial is conducted on 8 patients. 
+
+The following code simulates the trial with 500 replicates.
+
+```{r clinical-trial, exercise=TRUE, exercise.eval=FALSE}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+print("Simulation ran successfully")
+```
+
+**(a)** Run the simulation and view the results (*Hint*: make a plot). Describe the distribution of the number of good responses to the drug. 
+
+
+`r bfcolor("Solutions:", "blue")`
+```{r clinical-trial1-setup}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+```
+
+```{r clinical-trial1, exercise=TRUE, exercise.eval=FALSE}
+
+```
+```{r clinical-trial1-solution}
+table(number.responses)
+barplot(table(number.responses))
+```
+
+**(b)** What value(s) for response probability would produce a left-skewed distribution? What value(s) would produce a symmetric distribution? (See code for a matrix of plots)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r clinical-trial2, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r clinical-trial2-solution}
+#define parameters
+number.patients = 8
+response.prob = 0.85
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses.A = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate the trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses.A[k] = sum(number.responses.replicate)
+  
+}
+
+#define parameters
+number.patients = 8
+response.prob = 0.5
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses.B = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate the trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses.B[k] = sum(number.responses.replicate)
+  
+}
+
+par(mfrow = c(1, 2))
+barplot(table(number.responses.A))
+barplot(table(number.responses.B))
+```    
+
+**(c)** Based on the results of the simulation, estimate the probability that 0 patients respond well to the new drug. 
+
+`r bfcolor("Solutions:", "blue")`  
+
+The probability that 0 patients respond well is 132/500 = 0.264
+
+```{r clinical-trial3-setup}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+```
+
+
+
+
+```{r clinical-trial3, exercise=TRUE, exercise.eval=FALSE}
+
+```
+```{r clinical-trial3-solution}
+sum(number.responses == 0)
+sum(number.responses == 0)/number.replicates
+```
+
+**(d)** Let $X$ be a random variable defined as the number of patients who respond well to the experimental drug. Based on the results of the simulation,  construct a probability distribution for $X$, calculate $E(X)$, $V(X)$ and the c.d.f
+    
+`r bfcolor("Solutions:", "blue")`
+
+$X$ can take on values 0 through 8, inclusive.
+
+```{r clinical-trial4-setup}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+```
+
+
+```{r clinical-trial4, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r clinical-trial4-solution}
+#using r as a calculator
+prop.table(table(number.responses))  #print probability distribution table
+    
+#calculate E(X)
+xi = 0:8
+prob.xi = prop.table(table(number.responses))
+ex = sum(xi[1:6]*prob.xi) # try 1:8 and see what happens. Why?
+ex
+
+```
+
+
+```{r download-answers, child = system.file("child_documents/download_answers.Rmd", package = "tutorial.helpers")}
+```
+
+
+
