@@ -1,0 +1,196 @@
+---
+title: "PSTAT 10: Worksheet 8"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Completion
+
+- This worksheet consists of two parts: Computing Exercises, and Theory Exercises. 
+- You must complete the computing exercises by filling in your code on this `.Rmd` file, just like you did with the previous worksheets. 
+- You must complete the theory exercises on a separate sheet of paper.
+
+\
+
+---
+
+# Computing Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+## Exercise 1: Seeds
+
+- The **`set.seed()`** function allows us to reproduce the exact sample each time we execute any function involving randomness. The syntax is `set.seed(n)`, where `n` is a seed number.
+
+The seed number you choose is the starting point used in the generation of a sequence of random numbers, which is why you’ll obtain the same results given the same seed number.
+
+
+**(a)** Create a sample of 10 flips of a fair coin. Use zero and one to denote heads and tails respectively.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+
+```
+
+\
+
+**(b)** Run the above code chunk three times. Do you observe the same or a different set of 10 flips in each repetition? 
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with a description indicating you’ve carried out the necessary steps.**
+
+
+\
+
+**(c)** In the first line of the chunk below, set the seed to your favorite number. Then, copy-paste the code from part (a) below your call to `set.seed()`. Run this code chunk three times. Do you observe the same or different set of 10 flips each time. Briefly explain.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with a description of your results.**
+
+\
+
+---
+
+## Exercise 2: Probability Distributions
+
+The probability distribution of a discrete random variable $X$ is as shown in the table:
+
+| x | 1 | 2 | 3 | 4 | 5 |
+|---|:-:|:-:|:-:|:-:|:-:|
+| $\mathbb{P}(X = x)$ | 0.0 | $a$ | 0.3 | 0.15 | 0.07 | 
+
+Use `R` for these calculations
+
+**(a)** Find the missing value $a$.
+
+`r bfcolor("Solution:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** Compute $\mathbb{P}(X < 4)$. (You should plug in the value for $a$ you found in part (a); that is, your final answer should NOT be in terms of $a$.)
+
+`r bfcolor("Solution:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+**(c)** Find the mean of the random variable $X$. (You should plug in the value for $a$ you found in part (a); that is, your final answer should NOT be in terms of $a$.)
+
+`r bfcolor("Solution:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+
+**(d)** Construct the cumulative distribution function of $X$. (You should plug in the value for $a$ you found in part (a); that is, your final answer should NOT be in terms of $a$.)
+
+`r bfcolor("Solution:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+---
+
+# Theory Exercise:
+
+## Exercise 3: Coin Flips
+
+Consider flipping two coins and counting number of heads.  **Do these calculations by hand; do not use `R` for these calculations!**
+
+(a) Write down the p.m.f. 
+(b) Compute the expected value $\mathbb{E}[X]$, variance $\mathrm{Var}(X)$, and cumulative distribution function of $X$.
+
+\
+
+---
+
+## Exercise 4: Another Card Game
+
+A card is drawn randomly from a standard pack of 52 cards . Find the probability that it is:
+
+a) a club OR a diamond
+b) a club OR a king
+
+
+
+\
+
+---
+
+## Exercise 5: Test-Taking Skills 
+
+Johnny knows he will get an 'A' on the PSTAT 10 midterm with probability 87\% **if** he studied. If he did not study before the exam, his chances of getting an 'A' drop to 25\%. Suppose that there is a 65\% chance that Johnny studies for the midterm.  What is the chance that Johnny gets an 'A' on the midterm? \
+
+
+
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
+
