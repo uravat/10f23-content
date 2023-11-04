@@ -1,0 +1,224 @@
+---
+title: 'PSTAT 10: Homework 6'
+subtitle: 'last name, first name: your netid'
+date: "Due on Canvas by 11:59pm on Wednesday November 8"
+output:
+  html_document:
+    toc: yes
+---
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+---
+
+# Instructions for Submission
+
+- This homework consists of two parts: Computing Exercises, and Theory Exercises. 
+- The submission portal on Canvas has 3 questions:
+    - One for uploading your `.html` file for the Computing Exercises
+    - One for uploading your `.zip` file containing both the `.html` and `.Rmd` files (along with any relevant datasets/images) for the Computing Exercises
+    - One for uploading a `.PDF` of a photo or scan of your handwritten work for the Theory Exercises
+- Remember to **rename** your `.Rmd` file as `Homework06_yournetid.Rmd`
+- Remember to always copy the necessary files to your `workingfiles` folder; never edit and/or knit the files directly in the `10f23-content` folder.
+
+\
+
+---
+
+# Computing Exercises:
+
+## Exercise 1: Glossary of Functions
+
+Fill in the following table with the functions you learned in Lecture 09 and 10 this week. Add as many lines as you feel are necessary (remember that Worksheet 0 covered how to add rows to tables in Markdown).
+
+`r bfcolor("Solutions:", "blue")`
+
+
+| *`R` Function* | *Description of Function* | *Example of the Function* |
+|------|-------|-------|
+| `Function Name` | Function Description | `Function Example` |
+
+
+\
+
+---
+
+## Exercise 2: Constructing and Plotting P.M.F.'s from Observed Data
+
+The number of times the audio system in IV Theatre 1 failed was observed over a period of 1 year. It was found that 
+
+- 0 failures occurred in each of 8 weeks
+- 1 failure occurred in each of 14 weeks
+- 2 failures occurred in each of 11 weeks
+- 3 failures occurred in each of 10 weeks
+- 4 failures occurred in each of 5 weeks
+- 5 failures occurred in each of 3 weeks
+- 6 failures occurred in 1 week
+
+\
+
+**(a)** Use this observed data to estimate the probability distribution of the audio system failures in a week. You can use the `round` function to make the probabilities round to 2 decimals. Check that it is a valid probability distribution 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** Plot this distribution. Use the plot function with the `type = "h"` option to draw a line at each failure number. Explain what the height of each line represents in this plot. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(c)** Find the cumulative distribution function of the audio system failures in a week. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+**(d)** Plot the c.d.f using `type="S"` to get the stair-case plot. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+**(e)** Use your p.m.f and c.d.f and the plot from (d) to approximately calculate $\mathbb{P}(X \leq 3.5)$. Which was the easiest way to calculate this probability? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(f)**  Use your p.m.f and c.d.f and the plot from (d) to approximately calculate $\mathbb{P}(X \leq 1)$. Understand how the calculation for (e) differs from that of (f) while using the plot. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+## Exercise 3: Betting Odds
+
+A magical genie approaches you one day, and makes you an offer to give you \$100 if you win a game. He offers you the choice to play one of the following two games:
+
+- **Game A:** The genie tosses 100 fair coins; you win if more than 50 of the tosses land on heads.
+- **Game B:** The genie tosses 1000 fair coins; you win if more than 500 of the tosses land on heads.
+
+Which game should you play? In other words, in which of the two games are your chances of winning the \$100 higher? Be sure to justify your answer. \
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here, if applicable
+
+```
+
+**Replace this line with your final answer, and any other justifications you want to make.**
+
+\
+
+---
+
+# Theory Exercises
+
+## Exercise 4: Coin Flips
+
+Consider flipping two coins and counting number of tails.  **Do these calculations by hand and show your work!; do not use `R` for these calculations!**
+
+(a) Write down the p.m.f. 
+(b) Compute the expected value $\mathbb{E}[X]$
+(c) Compute the variance $\mathrm{Var}(X)$
+(d) Find the cumulative distribution function of $X$.
+
+\
+
+---
+
+## Exercise 5: Life Was Like a Box of Chocolates
+
+In a box there are 24 pieces of candy. 18 of these candies have a milk chocolate coating, and 6 have a white chocolate coating. Two thirds of the milk chocolate
+candies have a Marzipan filling. In total, there are 16 candies with Marzipan filling.
+
+(a) Find the probability of randomly selecting a candy that is either coated in white chocolate or filled with Marzipan.
+
+(b) Suppose you randomly selected a candy, opened it, and noted that is has a white chocolate coating. What is the probability that it has a marzipan filling?
+
+
+\
+
+---
+
+## Exercise 6: Counting Cards
+
+Two cards are drawn at random and without replacement from a standard deck of cards.
+
+(a) What is the probability that the second card is an ace, given that the first card was an ace?
+(b) What is the probability that both cards are aces?
+
+
+---
+
+
+# Learning Gains Week 05
+
+Write down your Learning Gains from section worksheets in Week 05
+
+**(a)** Learning gains from the Worksheet 08. 
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
+**(b)** Learning gains from the Worksheet 09. 
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
+
+---
