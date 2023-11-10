@@ -1,0 +1,405 @@
+---
+title: 'PSTAT 10: Homework 7'
+subtitle: 'last name, first name: your netid'
+date: "Due on Canvas by 11:59pm on Wednesday November 15"
+output:
+  html_document:
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#install.packages("knitr")
+library(knitr)
+
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+---
+
+# Instructions for Submission
+
+- The submission portal on Canvas is back to having 2 questions:
+    - One for uploading your `.html` file 
+    - One for uploading your `.zip` file containing both the `.html` and `.Rmd` files (along with any relevant datasets/images) 
+- The final exercise presents an **optional** opportunity for **extra credit**. You are not required to do this exercise. Please read and follow the instructions carefully to qualify for additional points, should you choose to pursue this option. 
+- Remember to **rename** your `.Rmd` file as `Homework07_yournetid.Rmd`
+- Remember to always copy the necessary files to your `workingfiles` folder; never edit and/or knit the files directly in the `10f23-content` folder.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 1: Glossary of Functions
+
+Fill in the following table with the functions you learned in Lecture 11 this week. Add as many lines as you feel are necessary (remember that Worksheet 0 covered how to add rows to tables in Markdown).
+
+`r bfcolor("Solutions:", "blue")`
+
+
+| *`R` Function* | *Description of Function* | *Example of the Function* |
+|------|-------|-------|
+| `Function Name` | Function Description | `Function Example` |
+
+
+\
+
+---
+
+## Exercise 2: Train Station
+
+You’re at the train station, and you know that a train departs between 8:00 AM and 9:00 AM. The exact departure time follows a uniform distribution. Letting $U$ represent the exact departure time, we can model this as $U \sim \text{Unif}(0,1)$. In other words, $U$, the departure time is uniformly distributed between 0 hours and 1 hour.
+
+\
+
+**(a)** Calculate the probability that the train departs before 8:30 AM, that is $\mathbb{P}(U < 1/2)$? 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** Say you arrive right on time at 8:00 AM. Calculate the probability that you’ll have to wait at the station for more than 15 minutes (i.e., the train departs
+after 8:15 AM).
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+
+**(c)** If you want to catch the train with at least a 90% chance of success, what is the latest time you can arrive at the train station? 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+\
+
+---
+
+## Exercise 3: Sleep Study
+
+A recent study at \emph{Gaucho University} surveyed several undergraduate students on their sleep habits. The results are stored in the dataset `sleep.csv`, which contains the following variables:
+
+- `age`: the age of each individual
+- `standing`: the standing (`Freshman`, `Sophomore`, `Junior`, `Senior`, `SuperSenior`) of each individual
+- `sleep`: the amount of sleep (in hours) each individual had on average, per night
+- `gender`: the gender of each student (`female`, `male`, `nonbinary`)
+- `coffee`: the average number of cups of coffee each individual drinks, per day
+
+\
+
+**(a)** Read in the data.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** Are there any missing values? If so, which variable(s) contain missing values?
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+\
+
+**(c)** Generate an appropriate plot to visualize the distribution of ages represented in this study. 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+**(d)** Generate an appropriate plot to visualize the distribution of average daily coffee consumption. (Hint: note that the variable `coffee` contains only integer values.)
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(e)** Generate an appropriate plot to visualize the distribution of genders present in this study.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(f)** Generate a plot to visualize the relationship between `sleep` and `standing`. Does any particular standing appear to get less sleep (on average) than other standings?
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+
+\
+
+**(g)** Plot the relationship between `sleep` (on the y-axis) and `age` (on the x-axis).
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+
+\
+
+**(h)** Provide a numerical summary of the average amount of sleep of participants in the study. 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(i)** Test the normality of the values in the `sleep` variable. 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+---
+
+## Exercise 4: Dice to Meet You
+
+**(a)** Consider the experiment of rolling 2 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+\
+
+
+**(b)** Now, consider the experiment of rolling 4 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+\
+
+
+**(c)** Now, consider the experiment of rolling 6 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+
+\
+
+**(d)** Now, consider the experiment of rolling 10 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+\
+
+**(e)** Finally, collect the QQPlots you made in parts (a) through (d) above and display them in a 2 $\times$ 2 grid, using the `par(mfrow = c(2, 2))` command from Lecture 9. Comment on how the normality of the sum changes as a function of the number of dice that were rolled.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your final answer.**
+
+
+---
+
+
+## Exercise 5: Phone a Friend
+
+The amount of time a randomly selected person spends on the phone in a given day is normally distributed with mean 8hrs and a standard deviation 1.5hrs. \
+
+**(a)** What is the probability that a randomly selected person will spend between 8 and 10 hours on their phone in a given day?
+
+`r bfcolor("Solutions", "blue")`
+
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** What amount of time is at the 63^rd^ percentile of time spent on the phone in a given day?
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(c)** Now, a sample of 123 people is taken with replacement. What is the probability that exactly 36 of them spend between 8 and 10 hours on their phone in a given day? **Hint:** You'll need to use your answer from part (a).
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+## Exercise 6: (Optional) Survey (Extra Credit!)
+
+Students have the option to participate in either or both of two survey opportunities.  
+
+- **Survey 1** [click here](https://tinyurl.com/pstat10f23), remember to take a screenshot after you submit the survey and know where it is saved on your local computer.
+- **Survey 2** [click here](https://tinyurl.com/dd10f23),  remember to take a screenshot after you submit the survey and know where it is saved on your local computer.
+
+To earn extra credit, you will need to submit these screenshots of the finished surveys through your `.Rmd` and knitted `.html` file as mentioned below. 
+
+**(a)** Please upload your completed survey screenshots to the `screenshots` folder. In **(b)** and **(c)** you will update the code block(s)  to replace the the provided `.png` file name to the file name(s) of your screenshot(s) to be eligible for extra credit.  As your solution, add a line to indicating that you completed  steps in part(a).
+
+`r bfcolor("Solutions", "blue")`
+
+
+\
+
+**(b)** **Survey 1** (+1 Point)
+
+If you completed Survey 1, in the code chunk below, replace `screenshot_to_replace.png` to the filename of the screenshot for Survey 1 completion you saved to the screenshots folder in part (a).  
+
+```{r, echo = F, out.width="75%", fig.cap = "Survey 1 - Screenshot"}
+include_graphics("./screenshots/screenshot_to_replace.png")
+
+```
+
+\
+
+
+**(c)** **Survey 2** (+1 Point)
+
+If you completed Survey 2, in the code chunk below, replace `screenshot_to_replace.png` to the filename of the screenshot for Survey 2 completion you saved to the screenshots folder in part (a). 
+
+```{r, echo = F, out.width="75%", fig.cap = "Survey 2 - Screenshot"}
+include_graphics("./screenshots/screenshot_to_replace.png")
+
+```
+
+
+---
+
+
+# Learning Gains Week 06
+
+Write down your Learning Gains from section worksheets in Week 06
+
+**(a)** Learning gains from the Worksheet 10. 
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
+**(b)** Learning gains from the Worksheet 11. 
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
+
+---
