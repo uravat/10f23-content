@@ -1,0 +1,44 @@
+---
+title: "L13 R Code"
+output: html_document
+date: "2023-02-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(DBI)
+library(RSQLite)
+drv = dbDriver("SQLite")
+chinook_db = dbConnect(drv, 
+              dbname="./data/Chinook_Sqlite.sqlite")
+```
+
+```{r }
+# List tables in our database 
+dbListTables(chinook_db) 
+```
+
+```{r}
+#List fields in Customer table
+dbListFields(chinook_db, "Customer") 
+```
+
+
+```{r}
+dbGetQuery(chinook_db,
+           "select CustomerId, FirstName, LastName, City, Country 
+           from Customer 
+           limit 6" )
+```
+
+```{r}
+dbGetQuery(chinook_db, 
+            "select CustomerId, FirstName, LastName, 
+                City, Country
+                        from Customer
+                        ORDER BY FirstName DESC
+                        limit 10")
+```
