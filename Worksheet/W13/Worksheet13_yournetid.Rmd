@@ -1,0 +1,193 @@
+---
+title: "PSTAT 10: Worksheet 13"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Completion
+
+- We are back to having only computing exercises on the worksheets. As such, you must complete the computing exercises by filling in your code on this `.Rmd` file.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+For this worksheet, we will again need to connect to the Chinook DB from lecture. Make sure the database is available to this .Rmd file in the `data` folder.
+
+## Exercise 1: Establishing a Connection
+
+Load the necessary packages and open a connection to the Chinook database housed in the sqlite file in the data folder.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+## Exercise 2: Terminology
+
+You may use Google to find explanations that make sense to you. 
+
+**(a)** Briefly explain the purpose of primary keys and foreign keys in a relational database.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers.**
+
+
+
+\
+
+**(b)** Briefly explain how relational databases model real world data.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers.**
+
+
+
+\
+
+**(c)** Briefly explain the difference between SQL, SQLite, and `RSQLite`.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers.**
+
+
+\
+
+---
+
+
+## Exercise 3: Tables and SQL queries
+
+**(a)** List all tables in the database
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+**(b)** Know the field names: What are the names of all the fields for `Customer`?
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(c)** Look at the first five records for `CustomerId`, `FirstName`, `LastName` and `Address`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(d)** Select the `CustomerId`, `FirstName`, `LastName`, `State`, `Country` of all customers living in California.
+
+_Hint_: Use `where State = 'CA'` in your select query
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(e)** How many customers are from USA? 
+
+_Hint_: Use `count(*)` in your select query
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+## Exercise 4: SQL queries
+
+Choose another table from the database. Write a SQL query and describe in words what your query is doing. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+**Replace this line with your answers.**
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
