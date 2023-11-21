@@ -1,0 +1,291 @@
+---
+title: "PSTAT 10: Worksheet 14"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Make sure you show your work to your TA once complete."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Completion
+
+- We are back to having only computing exercises on the worksheets. As such, you must complete the computing exercises by filling in your code on this `.Rmd` file.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+For this worksheet, we will again need to connect to the Chinook DB from lecture. Make sure the database is available to this .Rmd file in the `data` folder.
+
+## Exercise 1: Establishing a Connection
+
+Load the necessary packages and open a connection to the Chinook database housed in the sqlite file in the data folder.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+
+## Exercise  2: Tables and Foreign keys
+
+**(a)** List all tables in the database
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** **List all of the foreign key relationships in the database.** How many are there in all?
+
+Write out these relationships in the following format:
+
+`TableName.ForeignKey -> TargetTableName.PrimaryKey`.
+
+For example, the following indicates that
+`SupportRepId` in the `Customer` table is a foreign key to the primary key
+of the `Employee` table, which is `EmployeeId.`
+
+1. `Customer.SupportRepId -> Employee.EmployeeId`
+
+*Hint:*
+There are 11 total relationships to list.
+Do not simply "guess" by looking at the diagram from lecture. Access
+the Chinook database schema information using the SQLite `pragma` command.
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+**Write out the foreign key relationships below:**
+
+1.  
+2.  
+3.  
+4.  
+5.  
+6.  
+7.  
+8.  
+9.  
+10. 
+11. 
+
+
+\
+
+
+---
+
+## Exercise 3: Logicals in WHERE clause
+
+**(a)** Find all tracks shorter than 30,000ms (= 30s)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** Retrieve tracks shorter than 30,000ms from the album with `AlbumId` = 258 by using "and" in the `WHERE` clause
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(c)** Retrieve all tracks **either** shorter than 30,000ms **or** with `AlbumId` = 258
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(d)** Retrieve tracks shorter than 30,000ms from albums other than AlbumId = 258 in three ways
+
+1. Use "not AlbumId = 258" in WHERE clause
+2. Use  the standard SQL "not" operator `<>` in WHERE clause
+3. Use the SQLite "not" operator `!=` in WHERE clause
+
+Check that all three return the same result. Since SQLite is a lightweight database, SQLite specific SQL like the `!=` won't work with other RDBMS. So it's better to stick with the standard SQL syntax so that your SQL statements can be moved over to other RDBMS's without changes (pretty much like PDF is standard file format that works on all computer systems)
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(e)** Retrieve the `TrackId`, `Name`, `AlbumId`, and `Bytes` for all tracks between 300,000,000 and 400,000,000 bytes (approx between 286MB and 381MB) 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+## Exercise 4: Other quirks in WHERE clause
+
+**(a)** _String-within-String in R:_ Find all tracks named "Branch Closing". (Note: You'll need to use single quotes 'Branch Closing' to avoid getting `R` confused with `"` of the sql statement)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(b)** _Using LIKE operator:_ Find all tracks where `AlbumId` = 251 and the **2nd** letter in the track name is `r`.
+
+*Hint:* In L14 (slide 19), recall that a percent sign (`%`) matches any number of characters and an underscore (`_`) matches any **one** character. You will need to use **both wildcards** in your solution.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+**(c)** _SQL is case-insensitive:_ Have you noticed this? Try writing any of your previous SQL queries by changing upper case to lower case or vice-versa for all or any part of the SQL query. Does it work? _If needed, remember to change the R code chunk options to allow you to knit your document to submit it._
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+**(d)** Try running
+
+```{r, eval = F}
+SeLecT tRaCkiD, nAmE, aLbUmId FrOm TrAcK
+                          wHeRe NaMe = 'BrAnCh ClOsInG'
+```
+as your SQL query. Make sure you interpret what is returned and why. _If needed, remember to change the `R` code chunk options to allow you to knit your document to submit it._
+                          
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+
+```
+
+
+\
+
+---
+
+## Exercise 5: Your own SQL query
+
+Write your SQL query that uses `GROUPBY`, `WHERE` And `HAVING` and describe in words what your query is doing. You may choose another table to query if you like.  
+
+```{r}
+# Write your code here
+
+```
+
+
+
+\
+
+---
+
+## Exercise 6: Don't forget to close the connection to the database
+
+```{r}
+# Write your code here
+
+```
+
+\
+
+---
+
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before showing your TA your work to get Worksheet credit!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
